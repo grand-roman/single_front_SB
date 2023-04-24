@@ -235,7 +235,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Products'
+                $ref: '#/components/schemas/ProductShort'
     post:
       tags:
         - basket
@@ -249,8 +249,8 @@ paths:
                 name: item
               properties:
                 id:
-                  type: string
-                  example: '123'
+                  type: number
+                  example: 123
                 count:
                   type: number
                   example: 5
@@ -274,8 +274,8 @@ paths:
                 name: item
               properties:
                 id:
-                  type: string
-                  example: '123'
+                  type: number
+                  example: 123
                 count:
                   type: number
                   example: 5
@@ -482,11 +482,10 @@ components:
       required:
         - id
         - title
-        - href
       properties:
         id:
-          type: string
-          example: '123'
+          type: number
+          example: 123
         title:
           type: string
           example: 'video card'
@@ -500,9 +499,6 @@ components:
               example: '/3.svg'
             alt:
               type: string
-        href:
-          type: string
-          example: '/catalog/123'
         subcategories:
           type: array
           xml:
@@ -513,8 +509,8 @@ components:
               name: subcategory
             properties:
               id:
-                type: string
-                example: '123'
+                type: number
+                example: 123
               title:
                 type: string
                 example: 'video card'
@@ -528,9 +524,6 @@ components:
                     example: '/3.svg'
                   alt:
                     type: string
-              href:
-                type: string
-                example: '/catalog/123'
     Products:
       type: array
       items:
@@ -546,17 +539,16 @@ components:
         - title
         - price
         - count
-        - href
       type: object
       xml:
         name: productShort
       properties:
         id:
-          type: string
-          example: '123'
+          type: number
+          example: 123
         category:
-          type: string
-          example: '55'
+          type: number
+          example: 55
         price:
           type: number
           example: 500.67
@@ -572,9 +564,6 @@ components:
         description:
           type: string
           example: 'description of the product'
-        href:
-          type: string
-          example: '/catalog/123'
         freeDelivery:
           type: boolean
           example: true
@@ -606,7 +595,6 @@ components:
         - title
         - price
         - salePrice
-        - href
       type: object
       xml:
         name: saleItem
@@ -629,9 +617,6 @@ components:
         title:
           type: string
           example: 'video card'
-        href:
-          type: string
-          example: '/catalog/123'
         images:
           type: array
           xml:
@@ -647,7 +632,6 @@ components:
         - title
         - price
         - count
-        - href
       type: object
       xml:
         name: productFull
@@ -656,8 +640,8 @@ components:
           type: string
           example: '123'
         category:
-          type: string
-          example: '55'
+          type: number
+          example: 55
         price:
           type: number
           example: 500.67
@@ -676,9 +660,6 @@ components:
         fullDescription:
           type: string
           example: 'full description of the product'
-        href:
-          type: string
-          example: '/catalog/123'
         freeDelivery:
           type: boolean
           example: true
