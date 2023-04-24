@@ -2,6 +2,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from random import randrange
 import json
+from django.contrib.auth import login, logout
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+
+User = get_user_model()
 
 def banners(request):
 	data = [
@@ -263,4 +268,27 @@ def orders(request):
 				"rating": 4.6
 			}
 		]
-		return JsonResponse(data, safe=False)
+		return JsonResponse(data, safe=False)	
+
+def login(request):
+	if request.method == "POST":
+		body = json.loads(request.body)
+		user = User.objects.filter(username=body['username'])
+		if not user.exists():
+			return HttpResponse(status=404)
+			
+
+		request.user = user
+		login(
+			request,
+			request.user,
+			backend='django.contrib.auth.backends.ModelBackend',
+		)
+		return HttpResponse(status=200)
+	return HttpResponse(status=500)
+			
+
+
+def logout(request):
+	logout(request)
+	return HttpResponse(status=200)
