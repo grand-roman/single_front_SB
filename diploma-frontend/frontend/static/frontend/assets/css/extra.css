@@ -925,7 +925,7 @@
 .Card-hover {
   position: absolute;
   left: 0;
-  top: 100%;
+  top: 150%;
   height: 100%;
   right: 0;
   display: flex;
@@ -1907,11 +1907,16 @@ a.Cart-title {
 }
 .CategoriesButton-icon {
   margin-right: 17px;
-  min-width: 26px;
-  max-width: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.CategoriesButton-icon > img {
+  width: 26px;
+  height: 26px;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 .CategoriesButton-content {
   position: absolute;
@@ -3806,6 +3811,11 @@ a.Cart-title {
   background: #fff;
   z-index: 10;
   position: relative;
+  transition: all .1s ease;
+  cursor: pointer;
+}
+.Profile-img:hover {
+  opacity: .8;
 }
 .Profile-img img {
   max-height: 100%;
@@ -5170,4 +5180,76 @@ a.Cart-title {
   left: 0;
   bottom: 0rem;
   right: 0;
+}
+
+.Auth {
+  width: 100%
+}
+
+.Auth .wrapper {
+  width: 300px;
+  margin: 11% auto;
+}
+
+.Auth .sign-in {
+  color: black;
+  font-size: 1.3em;
+}
+
+.Auth form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Auth input {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  border-radius: 3px;
+  margin: 5px 0 !important;
+  outline: none;
+}
+
+.Auth input[type="text"]:focus,
+.Auth input[type="password"]:focus {
+  border: 1px solid rgb(0, 99, 209);
+  box-shadow: none;
+}
+
+.Auth .user-input:focus .user {
+  background: white !important;
+}
+
+.Auth input[type="text"],
+.Auth input[type="password"] {
+  padding: 5px 25px;
+  background: transparent;
+  color: rgb(0, 99, 209);
+}
+
+.Auth input[type="submit"] {
+  width: 100%;
+  background: rgb(0, 99, 209);
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+.Auth .sub-link {
+  font-size: 0.8em;
+  margin: 10px auto 0;
+  float: right;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: rgb(0, 99, 209);
+  display: block;
+  transition: border 0.4s;
+}
+
+.Auth .sub-link:hover {
+  border-bottom: 1px solid #0063d1;
 }

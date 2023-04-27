@@ -23,14 +23,14 @@
 
               <!-- Основное фото -->
               <div class="ProductCard-photo">
-                <img :src="photoSrc" :alt="photoAlt"/>
+                <img :src="product?.images ? product.images[activePhoto].src : null" :alt="product?.images ? product.images[activePhoto].alt : null"/>
               </div>
               <!-- Основное фото -->
               
               <!-- Миниатюры -->
               <div class="ProductCard-picts">
-                <a v-for="src in product.images" class="ProductCard-pict ProductCard-pict_ACTIVE" :href="src">
-                  <img :src="src" :alt="product.title"/>
+                <a v-for="(image, index) in product.images" class="ProductCard-pict" :class="{'ProductCard-pict_ACTIVE': activePhoto === index}" @click.prevent="setActivePhoto(index)">
+                  <img :src="image.src" :alt="image.alt"/>
                 </a>
               </div>
               <!-- Миниатюры -->
@@ -76,7 +76,7 @@
 
                   <!-- Как добавить пробел между ссылками? -->
                   <div v-for="(tag, index) in tags" >${ tag.name }$
-                    <span v-if="(index !== tags.length -1) && (tags.length !== 1)">|</span>
+<!--                    <span v-if="(index !== tags.length -1) && (tags.length !== 1)">|</span>-->
                   </div>
 
                 </div>
@@ -179,6 +179,5 @@
 {% endblock %}
 
 {% block mixins %}
-<script>var pk = {{pk}}</script>
 <script src="{% static 'frontend/assets/js/product-detail.js' %}"></script>
 {% endblock %}

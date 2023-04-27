@@ -9,9 +9,9 @@
           <h1 class="Middle-title">Заказ №${orderId}$
           </h1>
           <ul class="breadcrumbs Middle-breadcrumbs">
-            <li class="breadcrumbs-item"><a href="index.html">home</a>
+            <li class="breadcrumbs-item"><a href="/">Home</a>
             </li>
-            <li class="breadcrumbs-item"><a href="historyorder.html">История заказов</a>
+            <li class="breadcrumbs-item"><a href="/history-order/">История заказов</a>
             </li>
             <li class="breadcrumbs-item breadcrumbs-item_current"><span>Заказ №${orderId}$</span>
             </li>
@@ -79,7 +79,7 @@
                   <div class="Cart-block Cart-block_row">
                     <div class="Cart-block Cart-block_pict">
                       <a class="Cart-pict" href="#">
-                        <img class="Cart-img" :src="product.image.src" :alt="product.image.alt"/>
+                        <img class="Cart-img" :src="product.images[0].src" :alt="product.images[0].alt"/>
                       </a>
                     </div>
                     <div class="Cart-block Cart-block_info">
@@ -99,7 +99,7 @@
                     <strong class="Cart-title">Итого:<span class="Cart-price">${totalCost}$$</span>
                     </strong>
                   </div>
-                  <div class="Cart-block"><a class="btn btn_primary btn_lg" href="#">Оплатить</a>
+                  <div class="Cart-block"><a class="btn btn_primary btn_lg" :href="`/payment/${orderId}/`">Оплатить</a>
                   </div>
                 </div>
               </div>
@@ -112,6 +112,5 @@
 {% endblock %}
 
 {% block mixins %}
-<script>var pk = {{pk}}</script>
 <script src="{% static 'frontend/assets/js/order-detail.js' %}"></script>
 {% endblock %}

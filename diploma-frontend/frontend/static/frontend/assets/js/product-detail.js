@@ -1,8 +1,8 @@
 var mix = {
-    // может это сделать через шаблонизатор?
     computed: {
       tags () {
-          return this.product?.tags?.filter(tag => this.product?.tags?.includes(tag.id)) ?? []
+          if(!this.product?.tags) return []
+          return this.product.tags
       }
     },
     methods: {
@@ -12,25 +12,27 @@ var mix = {
         },
         getProduct() {
             const productId = location.pathname.startsWith('/product/')
-            ? Number(location.pathname.replace('/product/', ''))
+            ? Number(location.pathname.replace('/product/', '').replace('/', ''))
             : null
             this.getData(`/api/product/${productId}/`).then(data => {
                 this.product = {
                     ...this.product,
                     ...data
                 }
+                if(data.images.length)
+                    this.activePhoto = 0
             }).catch(() => {
                 this.product = {}
                 console.warn('Ошибка при получении товара')
             })
         },
         submitReview () {
-            this.postData('/api/product/'+ this.product.id+'/review/', {
+            this.postData(`/api/product/${this.product.id}/reviews/`, {
                 author: this.review.author,
                 email: this.review.email,
                 text: this.review.text,
                 rate: this.review.rate
-            }).then(data => {
+            }).then(({data}) => {
                 this.product.reviews = data
                 alert('Отзыв опубликован')
                 this.review.author = ''
@@ -40,6 +42,9 @@ var mix = {
             }).catch(() => {
                 console.warn('Ошибка при публикации отзыва')
             })
+        },
+        setActivePhoto(index) {
+            this.activePhoto = index
         }
     },
     mounted () {
@@ -48,6 +53,7 @@ var mix = {
     data() {
         return {
             product : {},
+            activePhoto: 0,
             count: 1,
             review: {
                 author: '',

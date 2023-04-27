@@ -21,7 +21,11 @@ var mix = {
                 avatar: this.avatar,
                 phone: this.phone,
                 email: this.email
-            }).then(data => {
+            }).then(({data}) => {
+                this.fullName = data.fullName
+                this.avatar = data.avatar
+                this.phone = data.phone
+                this.email = data.email
                alert('Успешно сохранено')
             }).catch(() => {
                 console.warn('Ошибка при обновлении профиля')
@@ -37,14 +41,15 @@ var mix = {
                 alert('В форме присутствуют незаполненные поля или пароли не совпадают')
                 return
             }
-            this.postData('/api/profile/password/').then(data => {
-               alert('Успешно сохранено')
-                this.passwordCurrent = ''
-                this.password = ''
-                this.passwordReply = ''
-            }).catch(() => {
-                console.warn('Ошибка при сохранении пароля')
-            })
+            this.postData('/api/profile/password/')
+              .then(({data}) => {
+                   alert('Успешно сохранено')
+                    this.passwordCurrent = ''
+                    this.password = ''
+                    this.passwordReply = ''
+                }).catch(() => {
+                    console.warn('Ошибка при сохранении пароля')
+                })
         },
         setAvatar (event) {
             const target = event.target
@@ -74,8 +79,10 @@ var mix = {
                 }
             }
             return cookieValue;
+        },
+        clearAvatar() {
+            this.avatar = null
         }
-
     },
     created() {
         this.getProfile();

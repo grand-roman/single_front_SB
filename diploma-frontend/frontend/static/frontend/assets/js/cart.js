@@ -1,29 +1,16 @@
 var mix = {
     methods: {
-        getCartItems() {
-            this.getData("/api/cart/")
-              .then(data => {
-                this.cartProducts = data.items
-              })
-        },
         submitBasket () {
             this.postData('/api/orders/', Object.values(this.basket))
-                .then(data => {
-                    this.order.id = data.id
-                    this.order.products = data.products
-                    this.basket = {}
-                    location.assign('/order')
+                .then(({data: { orderId }}) => {
+                    location.assign(`/orders/${orderId}/`)
                 }).catch(() => {
                     console.warn('Ошибка при создании заказа')
                 })
         }
     },
-    mounted() {
-        // this.getCartItems();
-    },
+    mounted() {},
     data() {
-        return {
-            cartProducts: [],
-        }
+        return {}
     }
 }

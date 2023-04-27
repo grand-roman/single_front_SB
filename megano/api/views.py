@@ -20,7 +20,10 @@ def banners(request):
 			"description": "description of the product",
 			"freeDelivery": True,
 			"images": [
-				"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg"
+				{
+					"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+					"alt": "any alt text",
+				}
 			],
 			"tags": [
 				"string"
@@ -33,25 +36,25 @@ def banners(request):
 
 def categories(request):
 	data = [
-		{
-      "id": 56,
-      "title": "video card",
-      "image": {
-        "src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-        "alt": "string"
-      },
-      "subcategories": [
-        {
-          "id": 57,
-          "title": "video card",
-          "image": {
-            "src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-            "alt": "string"
-          },
-        }
-      ]
-    }
-	]
+		 {
+			 "id": 123,
+			 "title": "video card",
+			 "image": {
+				"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+				 "alt": "Image alt string"
+			 },
+			 "subcategories": [
+				 {
+					 "id": 123,
+					 "title": "video card",
+					 "image": {
+							"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						 	"alt": "Image alt string"
+					 }
+				 }
+			 ]
+		 }
+	 ]
 	return JsonResponse(data, safe=False)
 
 
@@ -59,7 +62,7 @@ def catalog(request):
 	data = {
 		 "items": [
 				 {
-					 "id": "123",
+					 "id": 123,
 					 "category": 123,
 					 "price": 500.67,
 					 "count": 12,
@@ -68,10 +71,16 @@ def catalog(request):
 					 "description": "description of the product",
 					 "freeDelivery": True,
 					 "images": [
-						 "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg"
+					 		{
+					 			"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+					 			"alt": "hello alt",
+							}
 					 ],
 					 "tags": [
-						 "string"
+					 		{
+					 			"id": 0,
+					 			"name": "Hello world"
+					 		}
 					 ],
 					 "reviews": 5,
 					 "rating": 4.6
@@ -94,11 +103,17 @@ def productsPopular(request):
 			"description": "description of the product",
 			"freeDelivery": True,
 			"images": [
-				"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-			],
-			"tags": [
-				"string"
-			],
+					{
+						"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						"alt": "hello alt",
+					}
+			 ],
+			 "tags": [
+					{
+						"id": 0,
+						"name": "Hello world"
+					}
+			 ],
 			"reviews": 5,
 			"rating": 4.6
 		}
@@ -117,11 +132,17 @@ def productsLimited(request):
 			"description": "description of the product",
 			"freeDelivery": True,
 			"images": [
-				"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-			],
-			"tags": [
-				"string"
-			],
+					{
+						"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						"alt": "hello alt",
+					}
+			 ],
+			 "tags": [
+					{
+						"id": 0,
+						"name": "Hello world"
+					}
+			 ],
 			"reviews": 5,
 			"rating": 4.6
 		}
@@ -139,8 +160,11 @@ def sales(request):
 				"dateTo": "2023-05-20",
 				"title": "video card",
 				"images": [
-					"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-				]
+						{
+							"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+							"alt": "hello alt",
+						}
+				 ],
 			}
 		],
 		'currentPage': randrange(1, 4),
@@ -162,13 +186,17 @@ def basket(request):
 				"description": "description of the product",
 				"freeDelivery": True,
 				"images": [
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-				],
-				"tags": [
-					"string"
-				],
+						{
+							"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+							"alt": "hello alt",
+						}
+				 ],
+				 "tags": [
+						{
+							"id": 0,
+							"name": "Hello world"
+						}
+				 ],
 				"reviews": 5,
 				"rating": 4.6
 			},
@@ -182,13 +210,17 @@ def basket(request):
 				"description": "description of the product",
 				"freeDelivery": True,
 				"images": [
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-				],
-				"tags": [
-					"string"
-				],
+						{
+							"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+							"alt": "hello alt",
+						}
+				 ],
+				 "tags": [
+						{
+							"id": 0,
+							"name": "Hello world"
+						}
+				 ],
 				"reviews": 5,
 				"rating": 4.6
 			}
@@ -200,25 +232,33 @@ def basket(request):
 		id = body['id']
 		count = body['count']
 		print('[POST] /api/basket/   |   id: {id}, count: {count}'.format(id=id, count=count))
-		data = {
-			"id": id,
-			"category": 55,
-			"price": 500.67,
-			"count": 13,
-			"date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
-			"title": "video card",
-			"description": "description of the product",
-			"freeDelivery": True,
-			"images": [
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-			],
-			"tags": [
-				"string"
-			],
-			"reviews": 5,
-			"rating": 4.6
-		}
-		return JsonResponse(data)
+		data = [
+			{
+				"id": id,
+				"category": 55,
+				"price": 500.67,
+				"count": 13,
+				"date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
+				"title": "video card",
+				"description": "description of the product",
+				"freeDelivery": True,
+				"images": [
+						{
+							"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+							"alt": "hello alt",
+						}
+				 ],
+				 "tags": [
+						{
+							"id": 0,
+							"name": "Hello world"
+						}
+				 ],
+				"reviews": 5,
+				"rating": 4.6
+			}
+		]
+		return JsonResponse(data, safe=False)
 
 	elif (request.method == "DELETE"):
 		body = json.loads(request.body)
@@ -235,11 +275,17 @@ def basket(request):
 			"description": "description of the product",
 			"freeDelivery": True,
 			"images": [
-						"https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
-			],
-			"tags": [
-				"string"
-			],
+					{
+						"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						"alt": "hello alt",
+					}
+			 ],
+			 "tags": [
+					{
+						"id": 0,
+						"name": "Hello world"
+					}
+			 ],
 			"reviews": 5,
 			"rating": 4.6
 			}
@@ -259,11 +305,17 @@ def orders(request):
 			"description": "description of the product",
 			"freeDelivery": True,
 			"images": [
-				"string"
-			],
-			"tags": [
-				"string"
-			],
+					{
+						"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						"alt": "hello alt",
+					}
+			 ],
+			 "tags": [
+					{
+						"id": 0,
+						"name": "Hello world"
+					}
+			 ],
 				"reviews": 5,
 				"rating": 4.6
 			}
@@ -282,8 +334,253 @@ def signIn(request):
 		else:
 			return HttpResponse(status=500)
 
-
+def signUp(request):
+	return HttpResponse(status=200)
 
 def signOut(request):
 	logout(request)
+	return HttpResponse(status=200)
+
+def product(request, id):
+	data = {
+		"id": 123,
+		"category": 55,
+		"price": 500.67,
+		"count": 12,
+		"date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
+		"title": "video card",
+		"description": "description of the product",
+		"fullDescription": "full description of the product",
+		"freeDelivery": True,
+		"images": [
+				{
+					"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+					"alt": "hello alt",
+				}
+		 ],
+		 "tags": [
+				{
+					"id": 0,
+					"name": "Hello world"
+				}
+		 ],
+		"reviews": [
+			{
+				"author": "Annoying Orange",
+				"email": "no-reply@mail.ru",
+				"text": "rewrewrwerewrwerwerewrwerwer",
+				"rate": 4,
+				"date": "2023-05-05 12:12"
+			}
+		],
+		"specifications": [
+			{
+				"name": "Size",
+				"value": "XL"
+			}
+		],
+		"rating": 4.6
+	}
+	return JsonResponse(data)
+
+def tags(request):
+	data = [
+		{ "id": 0, "name": 'tag0' },
+		{ "id": 1, "name": 'tag1' },
+		{ "id": 2, "name": 'tag2' },
+	]
+	return JsonResponse(data, safe=False)
+
+def productReviews(request, id):
+	data = [
+    {
+      "author": "Annoying Orange",
+      "email": "no-reply@mail.ru",
+      "text": "rewrewrwerewrwerwerewrwerwer",
+      "rate": 4,
+      "date": "2023-05-05 12:12"
+    },
+    {
+      "author": "2Annoying Orange",
+      "email": "no-reply@mail.ru",
+      "text": "rewrewrwerewrwerwerewrwerwer",
+      "rate": 5,
+      "date": "2023-05-05 12:12"
+    },
+	]
+	return JsonResponse(data, safe=False)
+
+def profile(request):
+	if(request.method == 'GET'):
+		data = {
+			"fullName": "Annoying Orange",
+			"email": "no-reply@mail.ru",
+			"phone": "88002000600",
+			"avatar": {
+				"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+				"alt": "hello alt",
+			}
+		}
+		return JsonResponse(data)
+
+	elif(request.method == 'POST'):
+		data = {
+			"fullName": "Annoying Green",
+			"email": "no-reply@mail.ru",
+			"phone": "88002000600",
+			"avatar": {
+				"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+				"alt": "hello alt",
+			}
+		}
+		return JsonResponse(data)
+
+	return HttpResponse(status=500)
+
+def profilePassword(request):
+	return HttpResponse(status=200)
+
+def orders(request):
+	if(request.method == 'GET'):
+		data = [
+			{
+        "id": 123,
+        "createdAt": "2023-05-05 12:12",
+        "fullName": "Annoying Orange",
+        "email": "no-reply@mail.ru",
+        "phone": "88002000600",
+        "deliveryType": "free",
+        "paymentType": "online",
+        "totalCost": 567.8,
+        "status": "accepted",
+        "city": "Moscow",
+        "address": "red square 1",
+        "products": [
+          {
+            "id": 123,
+            "category": 55,
+            "price": 500.67,
+            "count": 12,
+            "date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
+            "title": "video card",
+            "description": "description of the product",
+            "freeDelivery": True,
+            "images": [
+              {
+                "src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+                "alt": "Image alt string"
+              }
+            ],
+            "tags": [
+              {
+                "id": 12,
+                "name": "Gaming"
+              }
+            ],
+            "reviews": 5,
+            "rating": 4.6
+          }
+        ]
+      },
+			{
+        "id": 123,
+        "createdAt": "2023-05-05 12:12",
+        "fullName": "Annoying Orange",
+        "email": "no-reply@mail.ru",
+        "phone": "88002000600",
+        "deliveryType": "free",
+        "paymentType": "online",
+        "totalCost": 567.8,
+        "status": "accepted",
+        "city": "Moscow",
+        "address": "red square 1",
+        "products": [
+          {
+            "id": 123,
+            "category": 55,
+            "price": 500.67,
+            "count": 12,
+            "date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
+            "title": "video card",
+            "description": "description of the product",
+            "freeDelivery": True,
+            "images": [
+              {
+                "src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+                "alt": "Image alt string"
+              }
+            ],
+            "tags": [
+              {
+                "id": 12,
+                "name": "Gaming"
+              }
+            ],
+            "reviews": 5,
+            "rating": 4.6
+          }
+        ]
+      }
+		]
+		return JsonResponse(data, safe=False)
+
+	elif(request.method == 'POST'):
+		data = {
+			"orderId": 123,
+		}
+		return JsonResponse(data)
+
+	return HttpResponse(status=500)
+
+def order(request, id):
+	if(request.method == 'GET'):
+		data = {
+			"id": 123,
+			"createdAt": "2023-05-05 12:12",
+			"fullName": "Annoying Orange",
+			"email": "no-reply@mail.ru",
+			"phone": "88002000600",
+			"deliveryType": "free",
+			"paymentType": "online",
+			"totalCost": 567.8,
+			"status": "accepted",
+			"city": "Moscow",
+			"address": "red square 1",
+			"products": [
+				{
+					"id": 123,
+					"category": 55,
+					"price": 500.67,
+					"count": 12,
+					"date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
+					"title": "video card",
+					"description": "description of the product",
+					"freeDelivery": True,
+					"images": [
+						{
+						"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+						"alt": "Image alt string"
+						}
+					],
+					"tags": [
+						{
+						"id": 12,
+						"name": "Gaming"
+						}
+					],
+					"reviews": 5,
+					"rating": 4.6
+				},
+			]
+		}
+		return JsonResponse(data)
+
+	elif(request.method == 'POST'):
+		data = { "orderId": 123 }
+		return JsonResponse(data)
+
+	return HttpResponse(status=500)
+
+def payment(request, id):
+	print('qweqwewqeqwe', id)
 	return HttpResponse(status=200)

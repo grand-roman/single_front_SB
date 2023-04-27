@@ -373,7 +373,7 @@ var Slider = function(){
                             }
                         ]
                     });
-    
+
                 } else {
                     $this.slick({
                         appendArrows: $navigate,
@@ -406,16 +406,16 @@ var Slider = function(){
                             }
                         ]
                     });
-                
+
                 }
             });
 
         }
     };
 };
-setTimeout(() => {
-    Slider().init();
-}, 1000);
+// setTimeout(() => {
+//     Slider().init();
+// }, 1000);
 var CartBlock = function(){
     return {
         init: function(){
@@ -812,24 +812,24 @@ Tabs().init();
 // setTimeout(function(){
 //     $('body').css('opacity', '1');
 // }, 100);
-var ProductCard = function(){
-    var $picts = $('.ProductCard-pict');
-    var $photo = $('.ProductCard-photo');
-    return {
-        init: function(){
-            $picts.on('click', function(e){
-                e.preventDefault();
-                var $this = $(this);
-                var href = $this.attr('href');
-                $photo.empty();
-                $photo.append('<img src="'+ href +'" />');
-                $picts.removeClass('ProductCard-pict_ACTIVE');
-                $this.addClass('ProductCard-pict_ACTIVE');
-            });
-        }
-    };
-};
-ProductCard().init();
+// var ProductCard = function(){
+//     var $picts = $('.ProductCard-pict');
+//     var $photo = $('.ProductCard-photo');
+//     return {
+//         init: function(){
+//             $picts.on('click', function(e){
+//                 e.preventDefault();
+//                 var $this = $(this);
+//                 var href = $this.attr('href');
+//                 $photo.empty();
+//                 $photo.append('<img src="'+ href +'" />');
+//                 $picts.removeClass('ProductCard-pict_ACTIVE');
+//                 $this.addClass('ProductCard-pict_ACTIVE');
+//             });
+//         }
+//     };
+// };
+// ProductCard().init();
 var Comments = function(){
     return {
         init: function(){
