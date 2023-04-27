@@ -431,19 +431,6 @@ paths:
         '200':
           description: successful operation
 
-  /orders/active:
-    get:
-      tags:
-        - order
-      description: 'Get active order'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Order'
-
   /payment:
     post:
       tags:
