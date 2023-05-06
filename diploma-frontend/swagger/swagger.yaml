@@ -32,6 +32,8 @@ paths:
       responses:
         '200':
           description: successful operation
+        '500':
+          description: unsuccessful operation
 
 
   /sign-up:
@@ -61,6 +63,8 @@ paths:
       responses:
         '200':
           description: successful operation
+        '500':
+          description: unsuccessful operation
 
   /sign-out:
     post:
