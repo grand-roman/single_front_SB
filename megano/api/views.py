@@ -335,6 +335,8 @@ def signIn(request):
 			return HttpResponse(status=500)
 
 def signUp(request):
+	user = User.objects.create_user("mir232", "lennon@thebeatles.com", "pass232")
+	user.save()
 	return HttpResponse(status=200)
 
 def signOut(request):
@@ -584,3 +586,8 @@ def order(request, id):
 def payment(request, id):
 	print('qweqwewqeqwe', id)
 	return HttpResponse(status=200)
+
+def avatar(request):
+	if request.method == "POST":
+# 		print(request.FILES["avatar"])
+		return HttpResponse(status=200)

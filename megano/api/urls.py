@@ -18,6 +18,7 @@ urlpatterns = [
     path('tags', views.tags),
     path('profile', views.profile),
     path('profile/password', views.profilePassword),
+    path('profile/avatar', views.avatar),
     path('order/<int:id>', views.order),
     path('payment/<int:id>', views.payment),
 ]
