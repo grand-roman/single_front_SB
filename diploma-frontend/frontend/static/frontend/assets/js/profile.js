@@ -53,14 +53,15 @@ var mix = {
         },
         setAvatar (event) {
             const target = event.target
-            const file = target.files?.[0] ?? null
+            const file = target.files[0]
             if (!file) return
 
             const formData = new FormData()
             formData.append('avatar', file)
 
-            this.postData('/api/profile/avatar', formData, {'Content-Type': 'multipart/form-data'}).then((data) => {
-                this.avatar = data.url
+            this.postData('/api/profile/avatar', formData, {'Content-Type': 'multipart/form-data'})
+            .then(() => {
+                this.getProfile()
             }).catch(() => {
                  console.warn('Ошибка при обновлении изображения')
             })
