@@ -664,10 +664,10 @@ components:
           example: 200.67
         dateFrom:
           type: string
-          example: '2023-05-08'
+          example: '05-08'
         dateTo:
           type: string
-          example: '2023-05-20'
+          example: '05-20'
         title:
           type: string
           example: 'video card'

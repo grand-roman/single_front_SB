@@ -156,8 +156,8 @@ def sales(request):
 				"id": 123,
 				"price": 500.67,
 				"salePrice": 200.67,
-				"dateFrom": "2023-05-08",
-				"dateTo": "2023-05-20",
+				"dateFrom": "05-08",
+				"dateTo": "05-20",
 				"title": "video card",
 				"images": [
 						{
