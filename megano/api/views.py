@@ -59,12 +59,14 @@ def categories(request):
 
 
 def catalog(request):
+	price = request.GET.get('filter[maxPrice]')
+	print(price)
 	data = {
 		 "items": [
 				 {
 					 "id": 123,
 					 "category": 123,
-					 "price": 500.67,
+					 "price": price,
 					 "count": 12,
 					 "date": "Thu Feb 09 2023 21:39:52 GMT+0100 (Central European Standard Time)",
 					 "title": "video card",
@@ -72,7 +74,7 @@ def catalog(request):
 					 "freeDelivery": True,
 					 "images": [
 					 		{
-					 			"src": "https://proprikol.ru/wp-content/uploads/2020/12/kartinki-ryabchiki-14.jpg",
+					 			"src": "https://www.wallpaperbetter.com/wallpaper/620/909/135/cute-gray-kitten-walk-grass-1080P-wallpaper-middle-size.jpg",
 					 			"alt": "hello alt",
 							}
 					 ],
@@ -410,6 +412,7 @@ def profile(request):
 	return HttpResponse(status=500)
 
 def profilePassword(request):
+	print(request.body)
 	return HttpResponse(status=200)
 
 def orders(request):
